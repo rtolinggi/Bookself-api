@@ -1,12 +1,6 @@
 import Hapi from "@hapi/hapi";
 import { HOST, PORT } from "./config/constant";
-import {
-  deleteRouteBookById,
-  getRouteBook,
-  getRouteBookById,
-  postRouteBook,
-  putRouteBookById,
-} from "./routes/routeBook";
+import { routeBook } from "./routes/routeBook";
 import("dotenv/config");
 
 const init = async () => {
@@ -15,13 +9,7 @@ const init = async () => {
     host: process.env.NODE_ENV === "production" ? HOST : "localhost",
   });
 
-  server.route([
-    postRouteBook,
-    getRouteBook,
-    getRouteBookById,
-    putRouteBookById,
-    deleteRouteBookById,
-  ]);
+  server.route([...routeBook]);
 
   await server.start();
 

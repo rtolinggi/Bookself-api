@@ -7,32 +7,40 @@ import {
   putHandlerBookById,
 } from "../handler/handlerBook";
 
-export const getRouteBook: ServerRoute = {
+const getRouteBook: ServerRoute = {
   path: "/books",
   method: "GET",
   handler: getHandlerBook,
 };
 
-export const getRouteBookById: ServerRoute = {
+const getRouteBookById: ServerRoute = {
   path: "/books/{id}",
   method: "GET",
   handler: getHandlerBookById,
 };
 
-export const putRouteBookById: ServerRoute = {
+const putRouteBookById: ServerRoute = {
   path: "/books/{id}",
   method: "PUT",
   handler: putHandlerBookById,
 };
 
-export const deleteRouteBookById: ServerRoute = {
+const deleteRouteBookById: ServerRoute = {
   path: "/books/{id}",
   method: "DELETE",
   handler: deleteHandlerBookById,
 };
 
-export const postRouteBook: ServerRoute = {
+const postRouteBook: ServerRoute = {
   path: "/books",
   method: "POST",
   handler: postHandlerBook,
 };
+
+export const routeBook = [
+  getRouteBook,
+  getRouteBookById,
+  postRouteBook,
+  putRouteBookById,
+  deleteRouteBookById,
+];
