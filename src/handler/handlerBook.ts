@@ -44,8 +44,8 @@ export const getHandlerBook = async (request: Request, h: ResponseToolkit) => {
   }
 
   books.sort((i, j) => {
-    let firstCase = i.insertedAt.toLowerCase();
-    let secondCase = j.insertedAt.toLowerCase();
+    const firstCase = i.insertedAt.toLowerCase();
+    const secondCase = j.insertedAt.toLowerCase();
     if (firstCase < secondCase) {
       return 1;
     } else if (firstCase > secondCase) {

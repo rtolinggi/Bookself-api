@@ -7,6 +7,11 @@ const init = async () => {
   const server = Hapi.server({
     port: parseInt(String(PORT)) || 5000,
     host: process.env.NODE_ENV === "production" ? HOST : "localhost",
+    routes: {
+      cors: {
+        origin: ["*"],
+      },
+    },
   });
 
   server.route([...routeBook]);
