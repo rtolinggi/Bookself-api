@@ -220,27 +220,3 @@ export const deleteHandlerBookById = async (
   response.code(200);
   return response;
 };
-
-const queryHandlerBook = (request: Request, h: ResponseToolkit) => {
-  const { name, reading, finished } = request.query;
-
-  if (name) {
-    const data = books
-      .filter((item) => item.name.toLowerCase === name.toLowerCase)
-      .map((item) => {
-        return {
-          id: item.id,
-          name: item.name,
-          publisher: item.publisher,
-        };
-      });
-    const response = h.response({
-      status: "success",
-      data: {
-        books: data,
-      },
-    });
-    response.code(200);
-    return response;
-  }
-};
