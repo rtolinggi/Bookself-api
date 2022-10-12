@@ -16,7 +16,7 @@ export const getHandlerBook = async (request: Request, h: ResponseToolkit) => {
     const data = books
       .filter((item) => {
         if (key === "name") {
-          return item.name.toLowerCase().includes(query.name);
+          return item.name.toLowerCase().includes(query.name.toLowerCase());
         }
         if (key === "reading") {
           return parseInt(query.reading) ? item.reading : !item.reading;
@@ -208,7 +208,7 @@ export const deleteHandlerBookById = async (
 
   if (error) {
     const response = h.response(error);
-    response.code(200);
+    response.code(404);
     return response;
   }
 
